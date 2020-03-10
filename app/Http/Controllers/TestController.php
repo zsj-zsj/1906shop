@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -18,5 +19,10 @@ class TestController extends Controller
         $key='key';
         $redis=Redis::get($key);
         echo $redis;
+    }
+
+    public function mysql1(){
+        $list=DB::table('reg')->first();
+        print_r($list);
     }
 }
