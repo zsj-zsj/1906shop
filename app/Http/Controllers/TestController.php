@@ -22,7 +22,16 @@ class TestController extends Controller
     }
 
     public function mysql1(){
-        $list=DB::table('reg')->first();
+        $list=DB::table('users')->get()->toArray();
         print_r($list);
+    }
+
+    public function mysql2(){
+        $data=[
+            'name'=>'345',
+            'email'=>'asd@qq.com',
+        ];
+        $res=DB::table('users')->insert($data);
+        print_r($res);
     }
 }
